@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: #fcfbf7; /* Parchment Cream */
+  color: #0d0d0f; /* Ink Black */
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.serif {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Base structural classes */
+.card {
+  @apply rounded-xl border p-6;
+  background: #ffffff; /* Pure Linen */
+  border-color: #2b1b1b; /* Espresso */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 8px 24px;
+}
+.card-raised {
+  @apply rounded-[20px] p-8;
+  background: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 20px 60px;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-medium transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 text-[15px];
+  border: 1px solid #000000;
+}
+.btn-primary {
+  @apply btn;
+  background: #0d0d0f; /* Ink Black */
+  color: #ffffff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #99ff66; /* Acid Lime */
+  color: #000000;
+  border-color: #000000;
+}
+.btn-outline, .btn-soft {
+  @apply btn;
+  background: #ffffff;
+  color: #0d0d0f;
+  border: 1px solid #2b1b1b;
+}
+.btn-outline:hover:not(:disabled), .btn-soft:hover:not(:disabled) {
+  background: #e7e4e0; /* Warm Linen */
+}
+
+/* Form Elements */
+.input {
+  @apply w-full rounded-[4px] border bg-[#ffffff] px-4 py-3 outline-none transition-all duration-200 text-[#0d0d0f] placeholder-gray-400;
+  border-color: #2b1b1b;
+}
+.input:focus {
+  border-color: #99ff66;
+  box-shadow: 0 0 0 1px #99ff66;
+}
+.label {
+  @apply mb-2 block text-sm font-medium tracking-wide uppercase;
+  color: #2b1b1b;
+  letter-spacing: 0.06em;
+}
+
+/* Badges / Chips */
+.badge {
+  @apply inline-flex rounded-lg px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider;
+  background: #99ff66; /* Acid Lime */
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+/* Tables */
+.table-wrap {
+  @apply overflow-x-auto rounded-xl border bg-[#ffffff];
+  border-color: #2b1b1b;
+}
+table {
+  @apply w-full text-sm text-gray-800;
+}
+th {
+  @apply px-5 py-4 text-left font-semibold tracking-wider uppercase text-[11px];
+  background: #fcfbf7;
+  color: #2b1b1b;
+  border-bottom: 1px solid #2b1b1b;
+}
+td {
+  @apply border-b px-5 py-4 transition-colors;
+  border-color: #e7e4e0;
+}
+tr:hover td {
+  background-color: #e7e4e0;
+  color: #0d0d0f;
+}
+
+/* Typography Overrides */
+h1, h2, h3, h4, h5, h6 {
+  color: #0d0d0f;
+}
+.text-slate-500, .text-gray-500 {
+  color: #2b1b1b !important;
+}
+.text-emerald-700 {
+  color: #0d0d0f !important;
+}
+.bg-emerald-700 {
+  background-color: #99ff66 !important;
+  color: #000000 !important;
+}
+
+/* Layout Specific */
+.shop-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: #0d0d0f;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Cards (Products) */
+.product-card {
+  border: 1px solid #2b1b1b;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.25s ease;
+  padding: 12px;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: #000000;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+}
+.product-img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  object-fit: cover;
+  background: #fcfbf7;
+  border-radius: 8px;
+}
+.icon-circle {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: #fcfbf7;
+  border: 1px solid #2b1b1b;
+  transition: 0.2s ease;
+}
+.feature-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.feature-strip > div {
+  background: #ffffff;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid #2b1b1b;
+}
+
+/* Hero Store */
+.hero-store {
+  background: #fcfbf7;
+  border-radius: 20px;
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #2b1b1b;
+}
+
+@media (max-width: 767px) {
+  .feature-strip {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .shop-shell {
+    padding: 0 16px;
+  }
+  .hero-store {
+    min-height: 340px;
+  }
+}
+@media print {
+  header, nav, .print\:hidden { display: none !important; }
+  body { background: white; color: black; }
+  .card, .product-card, .hero-store { background: white; border-color: #ccc; }
+}
